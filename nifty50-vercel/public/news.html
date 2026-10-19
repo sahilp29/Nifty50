@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nifty50 · News</title>
+<style>
+:root{--bg:#07090d;--s1:#0b0f17;--s2:#101620;--bd:#1a2636;--text:#bfcfdf;--muted:#4a6480;--up:#22c55e;--acc:#38bdf8;
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:13px;display:flex;flex-direction:column;overflow-x:hidden}
+.hdr{background:rgba(7,9,13,.96);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:200}
+.hdr-in{max-width:1100px;margin:0 auto;padding:0 16px;height:54px;display:flex;align-items:center;gap:14px}
+.logo{font-weight:800;font-size:18px;color:#fff}.logo em{color:var(--up);font-style:normal}
+.ttl{color:var(--muted);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.hdr-r{margin-left:auto;display:flex;gap:8px}
+.btn{background:var(--s2);border:1px solid var(--bd);color:var(--text);padding:6px 13px;border-radius:7px;font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--acc);color:var(--acc)}
+.bar{max-width:1100px;width:100%;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:8px;color:var(--muted);font-size:11px}
+.bar .src{margin-right:auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+main{flex:1;max-width:1100px;width:100%;margin:0 auto;padding:0 16px 16px;display:flex}
+/* ▼ Crop CNBC's own header (top) and bottom nav + ad strip (bottom). Tweak these two numbers if the crop is off. */
+:root{--crop-top:118px;--crop-bottom:125px}
+.frame{flex:1;position:relative;height:calc(100vh - 130px);min-height:420px;border:1px solid var(--bd);border-radius:10px;overflow:hidden;background:#fff}
+iframe{position:absolute;left:0;top:calc(-1 * var(--crop-top));width:100%;height:calc(100% + var(--crop-top) + var(--crop-bottom));border:0;display:block}
+@media(max-width:520px){.ttl{display:none}.hdr-r .btn{padding:6px 9px}}
+</style>
+</head>
+<body>
+<header class="hdr"><div class="hdr-in">
+  <div class="logo">Nifty<em>50</em></div>
+  <div class="ttl">Market News</div>
+  <div class="hdr-r">
+    <a class="btn" href="/index.html">⌂ HOME</a>
+    <a class="btn" href="/impact.html">⚡ Impact Calc</a>
+  </div>
+</div></header>
+
+<div class="bar">
+  <span class="src">CNBC-TV18 · Live market blog</span>
+  <button class="btn" onclick="reloadFeed()">↻ Refresh</button>
+  <a class="btn" id="open" target="_blank" rel="noopener">Open ↗</a>
+</div>
+
+<main>
+  <div class="frame"><iframe id="feed" title="CNBC-TV18 live market blog" loading="lazy"></iframe></div>
+</main>
+
+<script>
+  // ▼ Paste each day's CNBC-TV18 live blog link here (the /amp version loads lighter)
+  const LIVE_URL = "https://www.cnbctv18.com/market/stock-market-live-updates-nifty-50-expiry-today-sensex-hdfc-icici-axis-hospitals-divis-omc-sugar-stocks-vedanta-share-price-liveblog-20014552.htm/amp";
+
+  const feed = document.getElementById('feed');
+  feed.src = LIVE_URL;
+  document.getElementById('open').href = LIVE_URL;
+  function reloadFeed(){ feed.src = LIVE_URL + (LIVE_URL.includes('?') ? '&' : '?') + 't=' + Date.now(); }
+</script>
+</body>
+</html>
