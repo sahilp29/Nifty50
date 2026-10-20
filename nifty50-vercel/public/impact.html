@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nifty 50 — Impact Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/impact.css"/>
+<link rel="stylesheet" href="/css/drawer.css"/>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- React + in-browser JSX compiler (no build step) -->
+<script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.7/babel.min.js"></script>
+<!-- Candlestick charts -->
+<script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+
+<!-- App code: plain React components, loaded in order (shared helpers first, page root last) -->
+<script type="text/babel" data-presets="react" src="/js/shared/react.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/shared/utils.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/shared/hooks.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/shared/components.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/shared/weights.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/shared/StockChart.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/shared/StockDrawer.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/sectors.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/useImpactData.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/ImpactHeader.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/HeroStats.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/CumulativeBar.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/Waterfall.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/SectorGrid.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/WhatIf.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/ImpactTable.jsx"></script>
+<script type="text/babel" data-presets="react" src="/js/impact/App.jsx"></script>
+</body>
+</html>

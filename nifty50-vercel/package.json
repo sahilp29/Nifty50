@@ -1,0 +1,7 @@
+{
+  "name": "nifty50-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nifty 50 analytics dashboard deployed on Vercel",
+  "engines": { "node": ">=18" }
+}
