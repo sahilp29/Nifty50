@@ -1,3 +1,0 @@
-# Python packages for api/results.py and api/financials.py (installed automatically by Vercel)
-yfinance>=0.2.54
-pandas>=2.0
